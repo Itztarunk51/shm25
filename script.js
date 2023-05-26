@@ -103,5 +103,9 @@ connectWalletButton.addEventListener("click", connectWallet);
 
 // Initialize Web3 and contract instance
 initialize();
+// Event listener for input value changes
+    expressionInput.addEventListener('input', function() {
+      enableComputeAndResultButtons();
+    });
 
   </script>
