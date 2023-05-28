@@ -1,26 +1,26 @@
-const contractAddress = "0xcc2bDFAA45FD5fe6021117F198491134C3F75aE9"; // Replace with the deployed contract address
+const contractAddress = "0xcc2bDFAA45FD5fe6021117F198491134C3F75aE9"; 
 const contractABI = [
 	{
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "stringMathExpression",
+				"name": "expression",
 				"type": "string"
 			}
 		],
-		"name": "computeStringExpression",
+		"name": "computeString",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"inputs": [],
-		"name": "computedValue",
+		"name": "getResult",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "int256",
 				"name": "",
-				"type": "uint256"
+				"type": "int256"
 			}
 		],
 		"stateMutability": "view",
@@ -108,4 +108,4 @@ initialize();
       enableComputeAndResultButtons();
     });
 
-  </script>
+
