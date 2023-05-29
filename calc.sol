@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 contract StringInputCalculator {
     int256 private contractResult; // Renamed private variable
     
-    function computeString(string memory expression) public {
+    function evaluate(string memory expression) public pure returns (int256) {
         string[] memory rpn = toRPN(expression);
         int256[] memory stack = new int256[](rpn.length);
         uint256 top = 0;
@@ -19,11 +19,7 @@ contract StringInputCalculator {
             }
         }
         
-        contractResult = stack[0];
-    }
-    
-    function getResult() public view returns (int256) {
-        return contractResult;
+        return stack[0];
     }
     
     function toRPN(string memory expression) internal pure returns (string[] memory) {
@@ -80,19 +76,18 @@ contract StringInputCalculator {
     }
     
     function applyOperator(int256 a, bytes1 op, int256 b) internal pure returns (int256) {
-    if (op == "+") {
-        return a + b;
-    } else if (op == "-") {
-        return a - b;
-    } else if (op == "*") {
-        return a * b;
-    } else if (op == "/") {
-        return a / b;
-    } else {
-        revert("Invalid operator");
+        if (op == "+") {
+            return a + b;
+        } else if (op == "-") {
+            return a - b;
+        } else if (op == "*") {
+            return a * b;
+        } else if (op == "/") {
+            return a / b;
+        } else {
+            revert("Invalid operator");
+        }
     }
-}
-
     
     function precedence(bytes1 op) internal pure returns (uint256) {
         if (op == "+" || op == "-") {
