@@ -1,3 +1,4 @@
+let web3;
 const contractAbi = [
       {
         "inputs": [
@@ -19,7 +20,7 @@ const contractAbi = [
         "type": "function"
       }
     ];
-    const contractAddress = "YOUR_CONTRACT_ADDRESS";
+    const contractAddress = "0xcc2bdfaa45fd5fe6021117f198491134c3f75ae9";
 
     let web3;
 
